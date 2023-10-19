@@ -1,0 +1,21 @@
+## Sequelize Naming Convention
+  -  model name should be singular
+  - Taable name should be plural
+
+## what is the use of migration folder
+  -  so migration folder help us to understand when these table are created
+  - what propertues & contraints we added at database level.
+  - These migration file is usefull in incremental development.
+
+  - Async up is use for creating tabel
+  - Async down is use for deletion.
+
+=> step -1
+# how to generate model (make sure to run this cmd inside models parent directory).
+  - "npx sequelize model:genrate --name (table_name) --attributes name:String"
+
+=> step - 2
+# "npx sequelize db:migrate" will applie all migration on the database.
+  # it will create two table sequelize-meta and your table
+
+#if you want to rollback then run : "npx sequelize db:migrate:undo"
