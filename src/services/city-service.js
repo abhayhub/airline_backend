@@ -1,4 +1,3 @@
-const city = require('../models/city.js');
 const { CityRepository } = require('../repository/index.js');
 
 class CityService {
@@ -6,7 +5,7 @@ class CityService {
         this.cityRepository = new CityRepository();
     }
 
-    async createCity(){
+    async createCity(data){
         try {
             const city  = await this.cityRepository.createCity(data);
         } catch (error) {

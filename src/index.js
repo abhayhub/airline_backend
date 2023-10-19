@@ -11,7 +11,7 @@ const SetupAndStartServer = async () => {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended : true}));
 
-    app.listen(PORT , async () => {
+    app.listen(process.env.PORT , async () => {
         console.log(`server started at ${PORT}`);
         const repo = new CityRepository();
         // repo.deleteCity({cityid : 4});
