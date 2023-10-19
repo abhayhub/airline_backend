@@ -1,4 +1,3 @@
-const { response } = require('express');
 const { CityService } = require('../services/index.js');
 
 const cityService = new CityService();
@@ -10,13 +9,13 @@ const create = async (req,res) => {
             data : city,
             success : true,
             message : "Successfully created a city",
-            err : {}
+            err : {} 
         })
     } catch (error) {
         console.log(error);
         return res.status(500).json({
             data : {},
-            success : flase,
+            success : false,
             message : "Not able to create a city",
             err : error
         })
@@ -48,8 +47,8 @@ const destroy = async (req,res) => {
 //Pathc -> /city/:id
 const update = async (req,res) => {
     try {
-        const res  = await cityService.updateCity(req.params.id,req.body);
-        return res.status(201).json({
+        const res  = await cityService.updateCity(req.params.id, req.body);
+        return res.status(200).json({
             data : res,
             success : true,
             message : "Successfully updated a city",

@@ -1,6 +1,7 @@
-const {City } = require('../models/index.js');
+const { City } = require('../models/index.js');
 
 class CityRepository {
+
     async createCity({name}){
         try {
             const city = await City.create({name});
@@ -11,7 +12,7 @@ class CityRepository {
         }
     }
 
-    async deleteCity({cityid}){
+    async deleteCity(cityid){
         try {
             await City.destroy({
                 where : {
@@ -25,7 +26,7 @@ class CityRepository {
         }
     }
 
-    async updateCity({cityid,data}) {
+    async updateCity(cityid,data) {
         try {
             const city = await City.update(data, {
                 where : {
@@ -39,7 +40,7 @@ class CityRepository {
         }
     }
 
-    async getCity({cityid}){
+    async getCity(cityid){
         try {
             const city = await City.findByPk(cityid);
             return city;
