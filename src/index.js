@@ -15,8 +15,6 @@ const SetupAndStartServer = async () => {
         console.log(`server started at ${PORT}`);
         const repo = new CityRepository();
         // repo.deleteCity({cityid : 4});
-
-        repo.createCity({name : "Uttar Pradesh"});
     });
 }
 
