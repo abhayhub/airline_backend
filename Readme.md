@@ -30,6 +30,14 @@
 - One airport can have many flights , but a flight belongs to one airport.
 
 
+#3Tables
+
+### city => id,name,created,at, updated_at
+### Airport => id, name, address , city_id, created_At, update_At
+
+--------> Relationship => city has many airports and Airport belongs to a city (one to many)
+
+
 
 
 ----------------- DB Design ---------------
@@ -61,20 +69,6 @@
     - address
 
 
-- clone the project on your local
-- Execute `npm intsall` on the same path as of your root directory of the downloaded project
 
-- Create a `.env` file in the root directory and add the following environment variable
- -- `PORT=3000`
- - Inside the `src/config ` folder create a new file `config.json` and then add the following piece of json.
- {
-  "development": {
-    "username": "<Your user name>",
-    "password": "<your db password>",
-    "database": "Flights_Search_DB_DEV",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  }
-}
 
 
