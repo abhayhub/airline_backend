@@ -1,4 +1,4 @@
-const { CityService } = require('../services/index.js');
+const { CityService } = require('../services/index');
 
 const cityService = new CityService();
 
@@ -10,7 +10,7 @@ const create = async (req,res) => {
             success : true,
             message : "Successfully created a city",
             err : {} 
-        })
+        });
     } catch (error) {
         console.log(error);
         return res.status(500).json({
@@ -18,25 +18,25 @@ const create = async (req,res) => {
             success : false,
             message : "Not able to create a city",
             err : error
-        })
+        });
     }
 }
 
 const destroy = async (req,res) => {
 
     try {
-        const res  = await cityService.deleteCity(req.params.id);
+        const response  = await cityService.deleteCity(req.params.id);
         return res.status(200).json({
-            data : res,
+            data : response,
             success : true,
             message : "Successfully deleted a city",
             err : {}
-        })
+        });
     } catch (error) {
         console.log(error);
         return res.status(500).json({
             data : {},
-            success : flase,
+            success : false,
             message : "Not able to delete the city",
             err : error
         })
@@ -44,51 +44,98 @@ const destroy = async (req,res) => {
     
 }
 
+//Get -> /city/:id
+// const get = async (req,res) => {
+//     try {
+//         const response = await cityService.getCity(req.params.id);
+//         return res.status(200).json({
+//             data: response,
+//             success: true,
+//             message: 'Successfully fetched a city',
+//             err: {}
+//         });
+//     } catch (error) {
+//         console.log(error);
+//         return res.status(500).json({
+//             data: {},
+//             success: false,
+//             message: 'Not able to get the city',
+//             err: error
+//         });
+//     }
+// }
+
 //Pathc -> /city/:id
+const get = async (req ,res) => {
+
+    try {
+        const response = await cityService.getCity(req.params.id);
+        return res.status(200).json({
+            data: response,
+            success: true,
+            message: 'Successfully fetched a city',
+            err: {}
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: 'Not able to get the city',
+            err: error
+        });
+    }
+}
+
 const update = async (req,res) => {
     try {
-        const res  = await cityService.updateCity(req.params.id, req.body);
+        const response  = await cityService.updateCity(req.params.id, req.body);
         return res.status(200).json({
-            data : res,
+            data : response,
             success : true,
             message : "Successfully updated a city",
             err : {}
-        })
+        });
     } catch (error) {
         console.log(error);
         return res.status(500).json({
             data : {},
-            success : flase,
+            success : false,
             message : "Not able to update a city",
             err : error
         })
     }
 }
 
-//Get -> /city/:id
-const get = async (req,res) => {
+const getAll = async (req , res) => {
     try {
-        const res  = await cityService.getCity(req.params.id);
-        return res.status(201).json({
-            data : res,
-            success : true,
-            message : "Successfully fetched a city",
-            err : {}
-        })
+        const cities = await cityService.getAllCities();
+        return res.status(200).json({
+            data: cities,
+            success: true,
+            message: 'Successfully fetched a city',
+            err: {}
+        });
     } catch (error) {
         console.log(error);
         return res.status(500).json({
-            data : {},
-            success : flase,
-            message : "Not able to fetched a city",
-            err : error
-        })
+            data: {},
+            success: false,
+            message: 'Not able to get the city',
+            err: error
+        });
     }
 }
+
+
+
+
+
 
 module.exports = {
     create,
     destroy,
+    get,
     update,
-    get
+    getAll
 }

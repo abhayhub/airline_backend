@@ -1,4 +1,5 @@
-const { CityRepository } = require('../repository/index.js');
+const { NUMBER } = require('sequelize');
+const { CityRepository } = require('../repository/index');
 
 class CityService {
     constructor(){
@@ -8,13 +9,14 @@ class CityService {
     async createCity(data){
         try {
             const city  = await this.cityRepository.createCity(data);
+            return city;
         } catch (error) {
             console.log("Something went wrong at service layer");
             throw {error};
         }
     }
 
-    async deleteCity(){
+    async deleteCity(cityid){
         try {
             const response = await this.cityRepository.deleteCity(cityid);
             return response;
@@ -24,9 +26,9 @@ class CityService {
         }
     }
 
-    async updateCity(){
+    async updateCity(cityid,data){
         try {
-            const city = await this.updateCity(cityid, data);
+            const city = await this.cityRepository.updateCity(cityid, data);
             return city;
         } catch (error) {
             console.log("Something went wrong at service layer");
@@ -34,10 +36,20 @@ class CityService {
         }
     }
 
-    async getCity(){
+    async getCity(cityid) {
         try {
-            const city  = await this.cityRepository.getCity(cityid);
+            const city = await this.cityRepository.getCity(cityid);
             return city;
+        } catch (error) {
+            console.log("Something went wrong at service layer");
+            throw {error};
+        }
+    }
+
+    async getAllCities(){
+        try {
+            const cities = await this.cityRepository.getAllCities();
+            return cities;
         } catch (error) {
             console.log("Something went wrong at service layer");
             throw {error};
