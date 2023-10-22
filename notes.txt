@@ -4,8 +4,22 @@
 
 ## what is the use of migration folder
   -  so migration folder help us to understand when these table are created
-  - what propertues & contraints we added at database level.
+  - what properties & constraints we added at database level.
   - These migration file is usefull in incremental development.
+
+  ''' What does migration mean ??
+
+      Just like you use version control systems such as Git to
+      manage changes in your source code, you can use migrations to keep
+      track of changes to the database.
+      With migrations you can transfer your existing database into another
+      state and vice versa: Those state transitions are saved in migration files,
+      which describe how to get to the new state and how to revert the changes
+      in order to get back to the old state.
+
+    => A Migration in Sequelize is a javascript file which exports two functions,
+      up and down, that dictates how to perform the migration and undo it
+  ''' 
 
   - Async up is use for creating tabel
   - Async down is use for deletion.
