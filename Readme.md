@@ -35,6 +35,13 @@
 ### city => id,name,created,at, updated_at
 ### Airport => id, name, address , city_id, created_At, update_At
 
+'''
+
+npx sequelize model:genrate --name Airport --attributes
+name:String, address:String,cityId:Number
+
+'''
+
 --------> Relationship => city has many airports and Airport belongs to a city (one to many)
 
 
