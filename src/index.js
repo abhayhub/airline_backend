@@ -42,9 +42,9 @@ const SetupAndStartServer = async () => {
         // })
          
         //db.sequelize.sync() used for synchronizing
-        if(process.env.SYNC_DB){
-            db.sequelize.sync({alter : true});
-        }
+        // if(process.env.SYNC_DB){
+        //     db.sequelize.sync({alter : true});
+        // }
         // db.sequelize.sync({alter : true});
 
         // const city = await City.findOne({

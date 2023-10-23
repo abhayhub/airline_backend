@@ -33,3 +33,17 @@
   # it will create two table sequelize-meta and your table
 
 #if you want to rollback then run : "npx sequelize db:migrate:undo"
+
+
+
+{
+   "flightNumber" : "UK 820",
+   "airplaneId" : 1,
+   "departureAirportId" : 1,
+   "arrivalAirportId" : 4,
+   "arrivalTime" : "2023-10-2612:30:00",
+   "departureTime" : "2023-10-2716:30:00",
+   "price" : 6500,
+   "boardingGate" : "Terminal-2",
+   "totalSeats" : 700
+}
