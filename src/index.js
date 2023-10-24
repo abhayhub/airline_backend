@@ -35,29 +35,11 @@ const SetupAndStartServer = async () => {
         // });
         // console.log(data);
 
-        //creating new airport
-        // const newAirport = await Airport.create({
-        //     name : "Jabalpur International Airport",
-        //     cityId : 4
-        // })
          
         //db.sequelize.sync() used for synchronizing
         // if(process.env.SYNC_DB){
         //     db.sequelize.sync({alter : true});
         // }
-        // db.sequelize.sync({alter : true});
-
-        // const city = await City.findOne({
-        //     where : {
-        //         id : 9
-        //     }
-        // });
-        // const airports = await city.getAirports();
-        // console.log(city,airports);
-
-        
-
-        
 
     });
 }
